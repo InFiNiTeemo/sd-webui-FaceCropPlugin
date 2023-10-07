@@ -55,7 +55,7 @@ def crop_face_api(_: gr.Blocks, app: FastAPI):
             # rimg = app.draw_on(img, faces)
             # cv2.imwrite("/root/autodl-tmp/xiaoyu/a.jpg",rimg)
 
-        return {"image": api.encode_pil_to_base64(image).decode("utf-8")}
+        return {"images": [api.encode_pil_to_base64(image).decode("utf-8")]}
 
 try:
     import modules.script_callbacks as script_callbacks
