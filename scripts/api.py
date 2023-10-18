@@ -29,6 +29,7 @@ def crop_face_api(_: gr.Blocks, app: FastAPI):
         bbox = faces[0]['bbox']
         x1,y1,x2,y2 = bbox
         w,h = x2-x1, y2-y1
+        img = np.array(input_image)[:,:,:4]
         _w,_h,_ = img.shape
 
         crop_box = np.array([max(0,x1-w),max(0,y1-h),min(x2+w,_w),min(y2+h,_h)])
